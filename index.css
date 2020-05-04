@@ -22,14 +22,12 @@ body{
   height:29em;
   width:29em;
   display:flex;
-  justify-content: space-between;
-  align-items:space-between;
   flex-wrap:wrap;
   border:solid 2px green;
 }
 .container div{
-  height:45px;
-  width:45px;
+  height:10%;
+  width:10%;
   border:solid 1px black;
 }
 .snake{
