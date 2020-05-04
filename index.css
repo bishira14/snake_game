@@ -18,6 +18,9 @@ body{
   align-items: center;
   padding:5px;
 }
+.replay{
+  cursor:pointer;
+}
 .container{
   height:29em;
   width:29em;
