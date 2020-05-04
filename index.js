@@ -21,6 +21,7 @@ function keys(e){
     move = 10;
   }
 }
+
 function theMove(){
   let tail = theSnake.shift();
   theSnake.push(theSnake[theSnake.length-1] + move);
