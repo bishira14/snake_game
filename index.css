@@ -26,7 +26,9 @@ body{
   color: rgb(128, 128, 128);
 }
 .replay{
+  width:40px;
   cursor:pointer;
+  text-align: center;
 }
 .container{
   height:29em;
