@@ -1,18 +1,18 @@
-let tiles = document.querySelectorAll('.container div');
-let replay = document.querySelector('.replay');
+const tiles = document.querySelectorAll('.container div');
+const replay = document.querySelector('.replay');
 let move = 1;
 let theSnake = [0,1,2];
 let currentApple = 3;
 let score = -1;
-let scoreElement = document.querySelector('.stats span');
-let duration = 500;
+const scoreElement = document.querySelector('.stats span');
+let duration = 1000;
 let speed = 0.8;
 let collision = [[89,90],[79,80],[69,70],[59,60],[49,50],[39,40],[29,30],[19,20],[9,10],[-1,0],
 [90,89],[80,79],[70,69],[60,59],[50,49],[40,39],[30,29],[20,19],[10,9],[-10,0],[-9,1],[-8,2],
 [-7,3],[-6,4],[-5,5],[-4,6],[-3,7],[-2,8],[-1,9],[100,90],[101,91],[102,92],[103,93],[104,94],[105,95],
 [106,96],[107,97],[108,98],[109,99],[100,99]];
 let collArray=[];
-document.addEventListener('keyup', keys)
+document.addEventListener('keyup', keys);
 let game = setInterval(theMove, duration);
 
 function keys(e){
@@ -30,18 +30,20 @@ function keys(e){
 function theMove(){
   let tail = theSnake.shift();
   theSnake.push(theSnake[theSnake.length-1] + move);
+
   //if snake hits itself
   for(let k = 0; k < theSnake.length-1; k++){
     if(theSnake[theSnake.length-1] == theSnake[k]){
       return clearInterval(game);
     }
   }
+
   //collisions
     for(let i = 0; i < collision.length; i++){
       for(let j = 0; j < collision[i].length; j++){
          collArray.push(collision[i][j]);
       }
-      console.log(collArray);
+
       if((collArray[0] == theSnake[theSnake.length-1]) && (collArray[1] == theSnake[theSnake.length-2])){
          return clearInterval(game);
          collArray = [];
@@ -56,6 +58,7 @@ function theMove(){
   });
   //when snake catches apple
   apple();
+
 }
 
 function apple(){
@@ -72,10 +75,12 @@ function apple(){
     currentApple = random;
     score++;
     scoreElement.textContent = score;
-    duration + 500;
+    clearInterval(game);
+    duration = duration * speed;
+    game = setInterval(theMove, duration);
   }
-
 }
+
 replay.addEventListener('click',function(){
   return location.reload();
 })
