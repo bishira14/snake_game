@@ -19,13 +19,13 @@ body{
   padding:5px;
 }
 .container{
-  height:28em;
+  height:29em;
   width:29em;
   display:flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items:space-between;
   flex-wrap:wrap;
-  border:solid 1px black;
+  border:solid 2px green;
 }
 .container div{
   height:45px;

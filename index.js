@@ -2,7 +2,7 @@ let tiles = document.querySelectorAll('.container div');
 let move = 1;
 let theSnake = [0,1,2];
 let currentApple = 3;
-let collision = [[89,90],[79,80],[69,70],[59,60],[49,50],[39,40],[29,30],[19,20],[9,10],
+let collision = [[89,90],[79,80],[69,70],[59,60],[49,50],[39,40],[29,30],[19,20],[9,10],[-1,0],
 [90,89],[80,79],[70,69],[60,59],[50,49],[40,39],[30,29],[20,19],[10,9],[-10,0],[-9,1],[-8,2],
 [-7,3],[-6,4],[-5,5],[-4,6],[-3,7],[-2,8],[-1,9],[100,90],[101,91],[102,92],[103,93],[104,94],[105,95],
 [106,96],[107,97],[108,98],[109,99]];
@@ -36,6 +36,7 @@ function theMove(){
       for(let j = 0; j < collision[i].length; j++){
          collArray.push(collision[i][j]);
       }
+      console.log(collArray);
       if((collArray[0] == theSnake[theSnake.length-1]) && (collArray[1] == theSnake[theSnake.length-2])){
          return clearInterval(game);
          collArray = [];
