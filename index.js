@@ -32,10 +32,12 @@ function theMove(){
   theSnake.push(theSnake[theSnake.length-1] + move);
 
   //if snake hits itself
-  for(let k = 0; k < theSnake.length-1; k++){
-    if(theSnake[theSnake.length-1] == theSnake[k]){
+  let k = 0;
+  while(k < theSnake.length-1){
+    if(theSnake[k] == theSnake[theSnake.length-1]){
       return clearInterval(game);
     }
+    k++;
   }
 
   //collisions
